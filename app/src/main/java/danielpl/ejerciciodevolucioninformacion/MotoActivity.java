@@ -30,6 +30,7 @@ public class MotoActivity extends AppCompatActivity {
                 Moto mo1 = new Moto(txtMarca.getText().toString(),
                                     txtModelo.getText().toString(),
                                     Integer.parseInt(txtCC.getText().toString()));
+                //precaucion petara si no metes un numero pues no podra cambiarlo a string
                 Bundle mochila = new Bundle();
                 mochila.putSerializable("MOTO",mo1);
 
@@ -43,6 +44,7 @@ public class MotoActivity extends AppCompatActivity {
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setResult(RESULT_CANCELED);
                 finish();
             }
         });

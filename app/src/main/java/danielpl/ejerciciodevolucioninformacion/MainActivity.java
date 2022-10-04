@@ -74,10 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 launcherBicis.launch(intent);
             }
         });
-
-
-
-
     }
 
     //private void direccionar() {}

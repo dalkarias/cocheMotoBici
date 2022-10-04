@@ -29,6 +29,8 @@ public class BiciActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Bici bi1 = new Bici(txtMarca.getText().toString(),
                                     Integer.parseInt(txtPulgadas.getText().toString()));
+                //precaucion petara si no metes un numero pues no podra cambiarlo a string
+
                 Bundle mochila = new Bundle();
                 mochila.putSerializable("BICI",bi1);
 
@@ -42,6 +44,7 @@ public class BiciActivity extends AppCompatActivity {
         btnCerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setResult(RESULT_CANCELED);
                 finish();
             }
         });
