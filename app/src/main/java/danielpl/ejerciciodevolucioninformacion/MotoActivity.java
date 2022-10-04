@@ -2,9 +2,13 @@ package danielpl.ejerciciodevolucioninformacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import danielpl.ejerciciodevolucioninformacion.Modelos.Moto;
 
 public class MotoActivity extends AppCompatActivity {
 
@@ -20,6 +24,28 @@ public class MotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_moto);
 
         inicializarVariablesVisuales();
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Moto mo1 = new Moto(txtMarca.getText().toString(),
+                                    txtModelo.getText().toString(),
+                                    Integer.parseInt(txtCC.getText().toString()));
+                Bundle mochila = new Bundle();
+                mochila.putSerializable("MOTO",mo1);
+
+                Intent intentVacio = new Intent();
+                intentVacio.putExtras(mochila);
+                setResult(RESULT_OK,intentVacio);
+                finish();
+            }
+        });
+
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void inicializarVariablesVisuales() {

@@ -2,9 +2,13 @@ package danielpl.ejerciciodevolucioninformacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import danielpl.ejerciciodevolucioninformacion.Modelos.Bici;
 
 public class BiciActivity extends AppCompatActivity {
 
@@ -19,6 +23,28 @@ public class BiciActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bici);
 
         inicializarVariablesVisuales();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bici bi1 = new Bici(txtMarca.getText().toString(),
+                                    Integer.parseInt(txtPulgadas.getText().toString()));
+                Bundle mochila = new Bundle();
+                mochila.putSerializable("BICI",bi1);
+
+                Intent intentVacio = new Intent();
+                intentVacio.putExtras(mochila);
+                setResult(RESULT_OK,intentVacio);
+
+                finish();
+            }
+        });
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void inicializarVariablesVisuales() {
