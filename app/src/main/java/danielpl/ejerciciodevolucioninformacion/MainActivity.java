@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcherBicis;
 
     private String coches = "Cantidad coches: ";
-    private String motros = "Cantidad motos: ";
+    private String motos = "Cantidad motos: ";
     private String bicis = "Cantidad bicis: ";
 
     private ArrayList <Coche> listaCoche = new ArrayList<>();
@@ -120,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
                             if(result.getData() != null){
                                 Bundle bundle = result.getData().getExtras();
                                 Moto mo1 = (Moto) bundle.getSerializable("MOTO");
+                                listaMoto.add(mo1);
+                                txtmotos.setText(motos + listaMoto.size());
                             }
                         }
                     }
@@ -134,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
                             if(result.getData() != null){
                                 Bundle bundle = result.getData().getExtras();
                                 Bici bi1 = (Bici) bundle.getSerializable("BICI");
+                                listaBici.add(bi1);
+                                txtbicis.setText(bicis+listaBici.size());
                             }
                         }
                     }
